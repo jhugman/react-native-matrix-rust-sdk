@@ -1,13 +1,8 @@
-const MatrixRustSdk = require('./NativeMatrixRustSdk').default;
-
-MatrixRustSdk.installRustCrate(true);
+import rustModule from './NativeMatrixRustSdk';
+console.log("index.tsx: About to install rust crate");
+rustModule.installRustCrate(true);
+console.log("index.tsx: Just installed");
 
 export function multiply(a: number, b: number): number {
-  return MatrixRustSdk.multiply(a, b);
+  return rustModule.multiply(a, b);
 }
-
-export * from './generated/matrix_sdk';
-export * from './generated/matrix_sdk_base';
-export * from './generated/matrix_sdk_crypto';
-export * from './generated/matrix_sdk_ffi';
-export * from './generated/matrix_sdk_ui';
