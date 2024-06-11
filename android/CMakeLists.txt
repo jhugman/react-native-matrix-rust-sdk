@@ -18,10 +18,12 @@ add_library(
 )
 
 find_package(ReactAndroid REQUIRED CONFIG)
+find_library(LOGCAT log)
 
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
   ReactAndroid::jsi
+  ${LOGCAT}
 )
 
 # link_libraries(jsi)
