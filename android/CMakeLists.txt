@@ -15,6 +15,7 @@ include_directories(
 add_library(
     ${CMAKE_PROJECT_NAME} SHARED
     ../cpp/react-native-matrix-rust-sdk.cpp
+    ../cpp/generated/rondpoint.cpp
     cpp-adapter.cpp
 )
 

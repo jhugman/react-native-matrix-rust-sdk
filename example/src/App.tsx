@@ -1,9 +1,16 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-matrix-rust-sdk';
+import { multiply, copieDictionnaire, DictionnaireFactory, Enumeration } from 'react-native-matrix-rust-sdk';
 
 const result = multiply(3, 7);
+
+copieDictionnaire(DictionnaireFactory.create({
+  un: Enumeration.TROIS,
+  deux: false,
+  petitNombre: 42,
+  grosNombre: 42n,
+}));
 
 export default function App() {
   return (

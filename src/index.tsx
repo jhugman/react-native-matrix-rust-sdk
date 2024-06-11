@@ -6,3 +6,5 @@ console.log("index.tsx: Just installed");
 export function multiply(a: number, b: number): number {
   return rustModule.multiply(a, b);
 }
+
+export * from './generated/rondpoint';

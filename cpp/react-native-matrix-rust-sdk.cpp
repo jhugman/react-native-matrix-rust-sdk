@@ -1,4 +1,6 @@
 #include "react-native-matrix-rust-sdk.h"
+#include "generated/rondpoint.hpp"
+
 #include <android/log.h>
 
 #define LOG_TAG "MyRondpointApp"
@@ -15,6 +17,7 @@ namespace matrixrustsdk {
 
 	uint8_t installRustCrate(jsi::Runtime &runtime, uint8_t b) {
 		LOGI("About to try and install NativeRondpoint");
+		NativeRondpoint::registerModule(runtime);
 		LOGI("Installed Rondpoint");
 		return false;
 	}
