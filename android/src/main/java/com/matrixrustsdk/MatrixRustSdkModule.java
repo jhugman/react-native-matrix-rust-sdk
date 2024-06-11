@@ -20,6 +20,7 @@ public class MatrixRustSdkModule extends NativeMatrixRustSdkSpec {
   }
 
   static {
+    System.loadLibrary("uniffi_rondpoint");
     System.loadLibrary("react-native-matrix-rust-sdk");
   }
 
