@@ -2,6 +2,7 @@
 #define MATRIXRUSTSDK_H
 #include <cstdint>
 #include <jsi/jsi.h>
+#include <ReactCommon/CallInvoker.h>
 
 namespace matrixrustsdk {
   using namespace facebook;
