@@ -21,11 +21,11 @@ add_library(
 
 cmake_path(
   SET MY_SDK_LIB
-  ${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libuniffi_rondpoint.so
+  ${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libuniffi_rondpoint.a
   NORMALIZE
 )
-# add_library(my_sdk STATIC IMPORTED)
-# set_target_properties(my_sdk PROPERTIES IMPORTED_LOCATION ${MY_SDK_LIB})
+add_library(uniffi_rondpoint STATIC IMPORTED)
+set_target_properties(uniffi_rondpoint PROPERTIES IMPORTED_LOCATION ${MY_SDK_LIB})
 
 find_package(ReactAndroid REQUIRED CONFIG)
 find_library(LOGCAT log)
@@ -36,8 +36,5 @@ target_link_libraries(
   ReactAndroid::turbomodulejsijni
   ReactAndroid::react_nativemodule_core
   ${LOGCAT}
-  ${MY_SDK_LIB}
+  uniffi_rondpoint
 )
-
-# link_libraries(jsi)
-# target_link_libraries(${CMAKE_PROJECT_NAME} jsi)

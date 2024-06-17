@@ -1,16 +1,10 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply, copieDictionnaire, DictionnaireFactory, Enumeration } from 'react-native-matrix-rust-sdk';
+import { multiply, Stringifier } from 'react-native-matrix-rust-sdk';
 
-const result = multiply(3, 7);
-
-copieDictionnaire(DictionnaireFactory.create({
-  un: Enumeration.TROIS,
-  deux: false,
-  petitNombre: 42,
-  grosNombre: 42n,
-}));
+const stringifier = new Stringifier();
+const result = stringifier.wellKnownString("React Native");
 
 export default function App() {
   return (

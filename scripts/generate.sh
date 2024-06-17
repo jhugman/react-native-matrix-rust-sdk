@@ -20,8 +20,8 @@ REPO_DIR="$ROOT/rust_modules/uniffi-bindgen-react-native"
 LIB_FILE="$REPO_DIR/target/aarch64-linux-android/debug/libuniffi_rondpoint.so"
 
 pushd "${REPO_DIR}" > /dev/null || exit 1
-UNIFFI_BINDGEN_DIR=$ROOT/node_modules/uniffi-bindgen-react-native
-cargo run --manifest-path "$UNIFFI_BINDGEN_DIR/Cargo.toml" --bin uniffi-bindgen-react-native -- \
+UNIFFI_BINDGEN_DIR=$ROOT/node_modules/uniffi-bindgen-react-native/crates/ubrn_bindgen
+cargo run --manifest-path "$UNIFFI_BINDGEN_DIR/Cargo.toml" -- \
     bindings \
     --library \
     --ts-dir "$ROOT/src/generated" \
