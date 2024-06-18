@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-matrix-rust-sdk';
+import { multiply, Stringifier } from 'react-native-matrix-rust-sdk';
 
-const result = multiply(3, 7);
+const stringifier = new Stringifier();
+const result = stringifier.wellKnownString("React Native");
 
 export default function App() {
   return (

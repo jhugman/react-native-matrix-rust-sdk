@@ -26,7 +26,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "generate": "./scripts/bootstrap.sh --no-cpp",
+    "generate": "./scripts/generate.sh",
     "fmt": "prettier -w '**/*.{ts,tsx}'",
     "example": "yarn workspace react-native-matrix-rust-sdk-example",
     "test": "jest",
