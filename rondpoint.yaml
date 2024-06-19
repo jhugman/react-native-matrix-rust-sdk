@@ -4,7 +4,7 @@ crate:
   branch: main
   manifestPath: fixtures/rondpoint/Cargo.toml
 android:
-  cargoExtras: ""
+  cargoExtras: []
   directory: android
   jniLibs: src/main/jniLibs
   targets:
@@ -12,9 +12,18 @@ android:
     - armeabi-v7a
     - x86
     - x86_64
+ios:
+  directory: ios
+  targets:
+    - aarch64-apple-ios
+    - aarch64-apple-ios-sim
+  xcodebuildExtras: []
+  frameworkName: build/Rondpoint
+  cargoExtras:: []
+noOverwrite: []
 turboModule:
-  cpp: ./cpp
-  ts: ./src
+  cpp: cpp
+  ts: src
 bindings:
-  cpp: ./cpp/generated
-  ts: ./src/generated
+  cpp: cpp/generated
+  ts: src/generated

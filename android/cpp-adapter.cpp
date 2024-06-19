@@ -5,6 +5,7 @@
 
 using namespace facebook;
 
+// TODO Remove `multiply` after seeing this work on iOS and Android.
 extern "C"
 JNIEXPORT jdouble JNICALL
 Java_com_matrixrustsdk_MatrixRustSdkModule_nativeMultiply(JNIEnv *env, jclass type, jdouble a, jdouble b) {
