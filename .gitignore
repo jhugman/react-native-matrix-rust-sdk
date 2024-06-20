@@ -81,3 +81,6 @@ lib/
 rust_modules/
 
 generated/
+example/ios/.xcode.env.local
+example/ios/Podfile.lock
+yarn.lock
