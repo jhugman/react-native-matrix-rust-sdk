@@ -10,8 +10,8 @@ namespace matrixrustsdk {
 		return a * b;
 	}
 
-	uint8_t installRustCrate(jsi::Runtime &runtime, uint8_t b) {
-		NativeRondpoint::registerModule(runtime);
+	uint8_t installRustCrate(jsi::Runtime &runtime, std::shared_ptr<react::CallInvoker> callInvoker) {
+		NativeRondpoint::registerModule(runtime, callInvoker);
 		return false;
 	}
 

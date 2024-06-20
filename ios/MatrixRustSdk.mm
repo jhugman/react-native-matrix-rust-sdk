@@ -9,6 +9,7 @@ namespace uniffi_generated {
     class JSI_EXPORT NativeMatrixRustSdkSpecJSI : public ObjCTurboModule {
     public:
         NativeMatrixRustSdkSpecJSI(const ObjCTurboModule::InitParams &params);
+        std::shared_ptr<CallInvoker> callInvoker;
     };
 
     // TODO Remove `multiply` after seeing this work on iOS and Android.
@@ -16,8 +17,9 @@ namespace uniffi_generated {
       return static_cast<ObjCTurboModule&>(turboModule).invokeObjCMethod(rt, NumberKind, "multiply", @selector(multiply:b:), args, count);
     }
     static facebook::jsi::Value __hostFunction_MatrixRustSdk_installRustCrate(facebook::jsi::Runtime& rt, TurboModule &turboModule, const facebook::jsi::Value* args, size_t count) {
-        uint8_t a = 0;
-        uint8_t result = matrixrustsdk::installRustCrate(rt, a);
+        auto& tm = static_cast<NativeMatrixRustSdkSpecJSI&>(turboModule);
+        auto jsInvoker = tm.callInvoker;
+        uint8_t result = matrixrustsdk::installRustCrate(rt, jsInvoker);
         return facebook::jsi::Value(rt, result);
     }
     static facebook::jsi::Value __hostFunction_MatrixRustSdk_cleanupRustCrate(facebook::jsi::Runtime& rt, TurboModule &turboModule, const facebook::jsi::Value* args, size_t count) {
@@ -27,7 +29,7 @@ namespace uniffi_generated {
     }
 
     NativeMatrixRustSdkSpecJSI::NativeMatrixRustSdkSpecJSI(const ObjCTurboModule::InitParams &params)
-        : ObjCTurboModule(params) {
+        : ObjCTurboModule(params), callInvoker(params.jsInvoker) {
             // TODO Remove `multiply` after seeing this work on iOS and Android.
             this->methodMap_["multiply"] = MethodMetadata {2, __hostFunction_MatrixRustSdk_multiply};
             this->methodMap_["installRustCrate"] = MethodMetadata {1, __hostFunction_MatrixRustSdk_installRustCrate};
