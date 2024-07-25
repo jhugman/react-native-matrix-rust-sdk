@@ -30,12 +30,6 @@ const config = {
       acc[name] = path.join(__dirname, 'node_modules', name);
       return acc;
     }, {}),
-
-    // We use the experimental enablePackageExports to let dependencies' package.json define submodules.
-    // https://reactnative.dev/blog/2023/06/21/package-exports-support
-    enablePackageExports: true,
-    unstable_enablePackageExports: true,
-    unstable_enableSymlinks: true,
   },
 
   transformer: {
