@@ -1,0 +1,30 @@
+---
+crate:
+  repo: https://github.com/matrix-org/matrix-rust-sdk
+  branch: main
+  manifestPath: bindings/matrix-sdk-ffi/Cargo.toml
+android:
+  cargoExtras: []
+  directory: android
+  jniLibs: src/main/jniLibs
+  apiLevel: 21
+  targets:
+    - arm64-v8a
+    - armeabi-v7a
+    # - x86
+    # - x86_64
+ios:
+  directory: ios
+  targets:
+    - aarch64-apple-ios
+    - aarch64-apple-ios-sim
+  xcodebuildExtras: []
+  frameworkName: build/MatrixSdk
+  cargoExtras:: []
+noOverwrite: []
+turboModule:
+  cpp: cpp
+  ts: src
+bindings:
+  cpp: cpp/generated
+  ts: src/generated

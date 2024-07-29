@@ -26,6 +26,8 @@
     "!**/.*"
   ],
   "scripts": {
+    "build:android": "./node_modules/.bin/ubrn build android --and-generate --config matrix-sdk.yaml",
+    "build:ios": "./node_modules/.bin/ubrn     build ios     --and-generate --config matrix-sdk.yaml && (cd example/ios && pod install)",
     "generate": "./scripts/generate.sh",
     "fmt": "prettier -w '**/*.{ts,tsx}'",
     "example": "yarn workspace react-native-matrix-rust-sdk-example",

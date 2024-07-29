@@ -1,10 +1,24 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply, Stringifier } from 'react-native-matrix-rust-sdk';
+import * as matrix from 'react-native-matrix-rust-sdk';
 
-const stringifier = new Stringifier();
-const result = stringifier.wellKnownString("React Native");
+// const client = await new ClientBuilder()
+//                 .homeserverUrl("https://localhost:8008")
+//                 .userAgent("golden-eye/007")
+//                 .build();
+// const result = 34;
+const result = matrix.matrixToUserPermalink("@jplatte:notareal.hs");
+new matrix.ClientBuilder()
+  .username("@jhugman:matrix.org")
+  .passphrase("james+element@hugman.tv")
+  .build()
+  .then(client => {
+    console.log("client", client.deviceId());
+  })
+  .catch(err => {
+     console.log("err", err);
+   });
 
 export default function App() {
   return (
