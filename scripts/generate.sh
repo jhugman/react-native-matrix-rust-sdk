@@ -4,8 +4,8 @@ ROOT=$(dirname "$0")/..
 ROOT=$(cd "$ROOT" && pwd)
 
 UBRN_BIN="$ROOT/node_modules/.bin/uniffi-bindgen-react-native"
-CONFIG="$ROOT/rondpoint.yaml"
-MODULES=("rondpoint")
+CONFIG="$ROOT/matrix-rust-sdk-ffi.yaml"
+MODULES=("matrix-sdk-ffi")
 
 # Checkout the rondpoint crate from git
 "$UBRN_BIN" checkout --config "$CONFIG" 2>/dev/null || echo "Already checked out"
@@ -19,8 +19,8 @@ MODULES=("rondpoint")
 
 # Now generate the typescript and cpp.
 # This should be done by $UBRN_BIN, and derive these from the $CONFIG file.
-REPO_DIR="$ROOT/rust_modules/uniffi-bindgen-react-native"
-LIB_FILE="$REPO_DIR/target/aarch64-linux-android/debug/libuniffi_rondpoint.a"
+REPO_DIR="$ROOT/rust_modules/diode/matrix-rust-sdk"
+LIB_FILE="$REPO_DIR/target/aarch64-linux-android/debug/libmatrix_sdk_ffi.a"
 
 pushd "${REPO_DIR}" > /dev/null || exit 1
 "$UBRN_BIN" \

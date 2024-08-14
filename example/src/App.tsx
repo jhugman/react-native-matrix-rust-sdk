@@ -1,15 +1,15 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply, Stringifier } from 'react-native-matrix-rust-sdk';
+// import { multiply, Stringifier } from 'react-native-matrix-rust-sdk';
 
-const stringifier = new Stringifier();
-const result = stringifier.wellKnownString("React Native");
+// const stringifier = new Stringifier();
+// const result = stringifier.wellKnownString("React Native");
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result: Foo</Text>
     </View>
   );
 }
