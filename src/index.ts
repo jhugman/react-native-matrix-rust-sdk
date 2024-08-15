@@ -10,4 +10,9 @@ export function multiply(a: number, b: number): number {
 }
 
 // Export the generated bindings to the app.
-export * from './generated/rondpoint';
+export * from './generated/matrix-sdk-ffi';
+
+// Initialize the generated bindings: mostly checksums, but also callbacks.
+import matrix-sdk-ffi_ from './generated/matrix-sdk-ffi';
+
+matrix-sdk-ffi_.initialize();

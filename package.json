@@ -74,7 +74,7 @@
     "release-it": "^15.0.0",
     "turbo": "^1.10.7",
     "typescript": "^5.2.2",
-    "uniffi-bindgen-react-native": "https://github.com/jhugman/uniffi-bindgen-react-native"
+    "uniffi-bindgen-react-native": "https://github.com/jhugman/uniffi-bindgen-react-native#856b639a741b58069851d9079e261a00c2ed14f7"
   },
   "resolutions": {
     "@types/react": "^18.2.44"
