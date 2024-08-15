@@ -10,14 +10,14 @@ namespace react = facebook::react;
 // TODO Remove `multiply` after seeing this work on iOS and Android.
 extern "C"
 JNIEXPORT jdouble JNICALL
-Java_com_reactnativematrixrustsdk_ReactNativeMatrixRustSdkModule_nativeMultiply(JNIEnv *env, jclass type, jdouble a, jdouble b) {
-    return reactnativematrixrustsdk::multiply(a, b);
+Java_com_matrixrustsdk_MatrixRustSdkModule_nativeMultiply(JNIEnv *env, jclass type, jdouble a, jdouble b) {
+    return matrixrustsdk::multiply(a, b);
 }
 
-// Installer coming from ReactNativeMatrixRustSdkModule
+// Installer coming from MatrixRustSdkModule
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_reactnativematrixrustsdk_ReactNativeMatrixRustSdkModule_nativeInstallRustCrate(
+Java_com_matrixrustsdk_MatrixRustSdkModule_nativeInstallRustCrate(
     JNIEnv *env,
     jclass type,
     jlong rtPtr,
@@ -51,12 +51,12 @@ Java_com_reactnativematrixrustsdk_ReactNativeMatrixRustSdkModule_nativeInstallRu
     auto jsCallInvoker = nativePointer->getCallInvoker();
 
     auto runtime = reinterpret_cast<jsi::Runtime *>(rtPtr);
-    return reactnativematrixrustsdk::installRustCrate(*runtime, jsCallInvoker);
+    return matrixrustsdk::installRustCrate(*runtime, jsCallInvoker);
 }
 
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_reactnativematrixrustsdk_ReactNativeMatrixRustSdkModule_nativeCleanupRustCrate(JNIEnv *env, jclass type, jlong rtPtr, jboolean a) {
+Java_com_matrixrustsdk_MatrixRustSdkModule_nativeCleanupRustCrate(JNIEnv *env, jclass type, jlong rtPtr, jboolean a) {
     auto runtime = reinterpret_cast<jsi::Runtime *>(rtPtr);
-    return reactnativematrixrustsdk::cleanupRustCrate(*runtime, a);
+    return matrixrustsdk::cleanupRustCrate(*runtime, a);
 }

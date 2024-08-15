@@ -2,7 +2,7 @@
 #include "react-native-matrix-rust-sdk.h"
 #include "generated/matrix-sdk-ffi.hpp"
 
-namespace reactnativematrixrustsdk {
+namespace matrixrustsdk {
 	using namespace facebook;
 
 	// TODO Remove `multiply` after seeing this work on iOS and Android.
