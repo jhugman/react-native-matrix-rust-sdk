@@ -25,18 +25,11 @@ public class MatrixRustSdkModule extends NativeMatrixRustSdkSpec {
     System.loadLibrary("react-native-matrix-rust-sdk");
   }
 
-  // TODO Remove `multiply` after seeing this work on iOS and Android.
-  private static native double nativeMultiply(double a, double b);
   private static native boolean nativeInstallRustCrate(long rtPtr, CallInvokerHolder callInvoker);
-  private static native boolean nativeCleanupRustCrate(long rtPtr, boolean a);
+  private static native boolean nativeCleanupRustCrate(long rtPtr);
 
   @Override
-  public double multiply(double a, double b) {
-    return nativeMultiply(a, b);
-  }
-
-  @Override
-  public boolean installRustCrate(boolean rt) {
+  public boolean installRustCrate() {
     ReactApplicationContext context = getReactApplicationContext();
     return nativeInstallRustCrate(
       context.getJavaScriptContextHolder().get(),
@@ -45,10 +38,9 @@ public class MatrixRustSdkModule extends NativeMatrixRustSdkSpec {
   }
 
   @Override
-  public boolean cleanupRustCrate(boolean rt) {
+  public boolean cleanupRustCrate() {
     return nativeCleanupRustCrate(
-      this.getReactApplicationContext().getJavaScriptContextHolder().get(),
-      rt
+      this.getReactApplicationContext().getJavaScriptContextHolder().get()
     );
   }
 }

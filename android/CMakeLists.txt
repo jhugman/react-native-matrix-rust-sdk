@@ -5,24 +5,44 @@ project(react-native-matrix-rust-sdk)
 set (CMAKE_VERBOSE_MAKEFILE ON)
 set (CMAKE_CXX_STANDARD 17)
 
+# Resolve the path to the uniffi-bindgen-react-native package
+execute_process(
+    COMMAND node -p "require.resolve('uniffi-bindgen-react-native')"
+    OUTPUT_VARIABLE UNIFFI_BINDGEN_PATH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+string(REGEX
+  REPLACE "/typescript/src/index\\.ts$" ""
+  UNIFFI_BINDGEN_PATH ${UNIFFI_BINDGEN_PATH}
+)
+
 # Specifies a path to native header files.
 include_directories(
     ../cpp
     ../cpp/generated
 
-    ../node_modules/uniffi-bindgen-react-native/cpp/includes
+    ${UNIFFI_BINDGEN_PATH}/cpp/includes
 )
 
 add_library(
     ${CMAKE_PROJECT_NAME} SHARED
     ../cpp/react-native-matrix-rust-sdk.cpp
-    ../cpp/generated/rondpoint.cpp
+    ../cpp/generated/matrix_sdk_ffi.cpp
+    ../cpp/generated/matrix_sdk_ui.cpp
     cpp-adapter.cpp
 )
 
+# Set C++ compiler flags
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fexceptions")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fstack-protector-all")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+
 cmake_path(
   SET MY_RUST_LIB
-  ${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libuniffi_rondpoint.a
+  ${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libmatrix_sdk_ffi.a
   NORMALIZE
 )
 add_library(my_rust_lib STATIC IMPORTED)

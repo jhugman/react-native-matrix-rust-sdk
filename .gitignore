@@ -60,6 +60,9 @@ buck-out/
 android/app/libs
 android/keystores/debug.keystore
 
+# RUST output
+android/src/main/jniLibs/
+
 # Yarn
 .yarn/*
 !.yarn/patches

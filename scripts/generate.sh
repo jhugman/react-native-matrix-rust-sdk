@@ -4,8 +4,11 @@ ROOT=$(dirname "$0")/..
 ROOT=$(cd "$ROOT" && pwd)
 
 UBRN_BIN="$ROOT/node_modules/.bin/uniffi-bindgen-react-native"
-CONFIG="$ROOT/rondpoint.yaml"
-MODULES=("rondpoint")
+CONFIG="$ROOT/uniffi.yaml"
+MODULES=("matrix_sdk_ffi" "matrix_sdk_ui")
+
+export ANDROID_NDK_HOME=${ANDROID_NDK_HOME:-${ANDROID_SDK_ROOT}/ndk/26.1.10909125/}
+export NDK_CLANG_VERSION=17
 
 # Checkout the rondpoint crate from git
 "$UBRN_BIN" checkout --config "$CONFIG" 2>/dev/null || echo "Already checked out"

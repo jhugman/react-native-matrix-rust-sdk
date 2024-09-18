@@ -7,13 +7,6 @@
 namespace jsi = facebook::jsi;
 namespace react = facebook::react;
 
-// TODO Remove `multiply` after seeing this work on iOS and Android.
-extern "C"
-JNIEXPORT jdouble JNICALL
-Java_com_matrixrustsdk_MatrixRustSdkModule_nativeMultiply(JNIEnv *env, jclass type, jdouble a, jdouble b) {
-    return matrixrustsdk::multiply(a, b);
-}
-
 // Installer coming from MatrixRustSdkModule
 extern "C"
 JNIEXPORT jboolean JNICALL
@@ -56,7 +49,7 @@ Java_com_matrixrustsdk_MatrixRustSdkModule_nativeInstallRustCrate(
 
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_matrixrustsdk_MatrixRustSdkModule_nativeCleanupRustCrate(JNIEnv *env, jclass type, jlong rtPtr, jboolean a) {
+Java_com_matrixrustsdk_MatrixRustSdkModule_nativeCleanupRustCrate(JNIEnv *env, jclass type, jlong rtPtr) {
     auto runtime = reinterpret_cast<jsi::Runtime *>(rtPtr);
-    return matrixrustsdk::cleanupRustCrate(*runtime, a);
+    return matrixrustsdk::cleanupRustCrate(*runtime);
 }

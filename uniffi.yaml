@@ -1,8 +1,8 @@
 ---
 crate:
-  repo: https://github.com/jhugman/uniffi-bindgen-react-native
+  repo: https://github.com/matrix-org/matrix-rust-sdk
   branch: main
-  manifestPath: fixtures/rondpoint/Cargo.toml
+  manifestPath: bindings/matrix-sdk-ffi/Cargo.toml
 android:
   cargoExtras: []
   directory: android
@@ -18,7 +18,7 @@ ios:
     - aarch64-apple-ios
     - aarch64-apple-ios-sim
   xcodebuildExtras: []
-  frameworkName: build/Rondpoint
+  frameworkName: build/RnMatrixRustSdk
   cargoExtras:: []
 noOverwrite: []
 turboModule:
