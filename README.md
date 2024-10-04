@@ -1,3 +1,11 @@
+# ⚠️⚠️⚠️⚠️⚠️⚠️ Archived 2024-10-04 ⚠️⚠️⚠️⚠️⚠️⚠️
+
+This repo is now inactive.
+
+If you're looking for the Matrix SDK packaged for React Native, you should go to https://github.com/unomed-dev/react-native-matrix-sdk instead.
+
+---
+
 # react-native-matrix-rust-sdk
 
 React Native bindings for the Matrix Rust SDK
